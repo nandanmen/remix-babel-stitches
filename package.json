@@ -6,7 +6,9 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev"
+    "build:content": "rm -rf ./app/_dist-content && babel ./app/content --out-dir ./app/_dist-content --copy-files --extensions .ts,.tsx",
+    "dev": "remix dev",
+    "watch:content": "yarn build:content --watch"
   },
   "dependencies": {
     "@remix-run/node": "^1.4.1",
@@ -14,15 +16,22 @@
     "@remix-run/vercel": "^1.4.1",
     "@stitches/react": "^1.2.8",
     "@vercel/node": "^1.14.0",
+    "mdx-bundler": "^9.0.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "tiny-invariant": "^1.2.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-syntax-jsx": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
     "@remix-run/dev": "^1.4.1",
     "@remix-run/eslint-config": "^1.4.1",
     "@remix-run/serve": "^1.4.1",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
+    "babel-plugin-macros": "^3.1.0",
     "eslint": "^8.11.0",
     "typescript": "^4.5.5"
   },
