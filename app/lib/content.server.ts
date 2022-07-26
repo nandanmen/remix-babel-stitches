@@ -4,7 +4,9 @@ import * as path from "path";
 import glob from "glob";
 import matter from "gray-matter";
 
-const CONTENT_FOLDER = "app/_dist-content";
+`${__dirname}/../app/_dist-content`;
+
+const CONTENT_FOLDER = path.join(__dirname, "..", "app/_dist-content");
 const POST_FILENAME = "index.mdx";
 
 export type Post = {
@@ -21,7 +23,7 @@ export type PostMetadata = {
  * Gets the post from `dist/content` and bundles it using MDX bundler
  */
 export const getPost = async (slug: string): Promise<Post> => {
-  const postFolder = path.join(process.cwd(), CONTENT_FOLDER, slug);
+  const postFolder = path.join(CONTENT_FOLDER, slug);
   const mdxSource = await fs.readFile(path.join(postFolder, POST_FILENAME));
   return bundleMDX({
     source: mdxSource.toString(),
