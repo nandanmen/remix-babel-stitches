@@ -5,7 +5,7 @@
   "license": "",
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
+    "build": "yarn build:content && remix build",
     "build:content": "rm -rf ./app/_dist-content && babel ./app/content --out-dir ./app/_dist-content --copy-files --extensions .ts,.tsx",
     "dev": "remix dev",
     "watch:content": "yarn build:content --watch"
