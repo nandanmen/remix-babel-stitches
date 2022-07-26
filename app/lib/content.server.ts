@@ -4,9 +4,7 @@ import * as path from "path";
 import glob from "glob";
 import matter from "gray-matter";
 
-`${__dirname}/../app/_dist-content`;
-
-const CONTENT_FOLDER = path.join(__dirname, "..", "app/_dist-content");
+const CONTENT_FOLDER = `${__dirname}/../app/_dist-content`;
 const POST_FILENAME = "index.mdx";
 
 export type Post = {
